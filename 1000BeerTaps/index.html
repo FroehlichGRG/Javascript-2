@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1000 beer taps | Georg Froehlich</title>
+</head>
+<body>
+<div style="width:80%">
+
+    <p>Once upon a time there was a tavern with 1000 beer taps, numbered from 1 to 1000. You were told by a mysterious stranger that the best beers are the one with the taps whose number matches those 2 conditions:</p>
+    <ol>
+        <li>The sum of the divisors (including 1, but not the number itself) of the tap number is greater than tap number itself</li>
+        <li>No subset of those divisors sums up to the tap number itself</li>
+    </ol>
+    <p>The waiter is coming, what is your order?</p>
+
+    <p>For example:</p>
+    <p>- Number 12: the proper divisors are 1, 2, 3, 4 and 6. The sum is 1+2+3+4+6 = 16 which is greater than 12 and matches the first condition. However, the subset 2+4+6=12 which violates the second condition.</p>
+    <p>You can solve this challenge in any language of your choice. Please submit the tap number(s) and the source code of your solution to this email address within 1 week.</p>
+    <p>Disclaimer</p>
+    <p>This data is strictly to be used in connection with the coding challenge, constitutes confidential information and must not be copied, distributed or reproduced in whole or in part, nor passed to any third party or website in any form whatsoever.</p>
+
+    <p id='ResultArray'>List of the best beer taps: </p>
+
+    <p id='MyOrder'>I would like to order beer from tap # </p>
+</div>
+</div>
+<script>
+
+    const tapQuantity = 1000;
+    var tapArrayFirstCondition = [];
+    var makeTapNumberDivisors = (tapNumber) =>
+    {
+        var divisorsArray = [];
+        var summOfnumbers = 0;
+        for (var i=1; i < tapNumber; i++)
+        {
+            if (tapNumber % i == 0) {
+
+                divisorsArray.push(i);
+                summOfnumbers += i;
+            }
+        }
+        return divisorsArray;
+    }
+
+    var sumOfDivisors;
+
+    for ( tapNumber = 1 ; tapNumber < tapQuantity; tapNumber++)
+    {
+        if (makeTapNumberDivisors(tapNumber)!= '')
+        {
+            sumOfDivisors = makeTapNumberDivisors(tapNumber).reduce((sum, elem) => sum + elem);
+            if (sumOfDivisors > tapNumber)
+            {
+                tapArrayFirstCondition.push(tapNumber);
+            }
+        }
+    }
+
+    const getAllSubsets =
+        theArray => theArray.reduce(
+            (subsets, value) => subsets.concat(
+                subsets.map(set => [value,...set])
+            ),
+            [[]]
+        );
+
+    var i=0;
+    var sum;
+    var number;
+    var tapArraySecondCondition = [];
+    var currentTap = makeTapNumberDivisors(number);
+    var position;
+
+    for (k=0; k< tapArrayFirstCondition.length; k++ )
+    {
+
+        number = tapArrayFirstCondition[k];
+
+        arrayOfAllSubsets = getAllSubsets(currentTap);
+
+        for (i=0; i<arrayOfAllSubsets.length; i++)
+        {
+            sum=0;
+            sum = arrayOfAllSubsets[i].reduce(
+                function(total, num){ return total + num }
+                , 0);
+
+            if (sum = number && tapArraySecondCondition.indexOf(number) == -1  )
+            {
+                tapArraySecondCondition.push(number);
+                position = tapArrayFirstCondition.indexOf(number);
+                tapArrayFirstCondition.splice(position, 1);
+            }
+        }
+    }
+
+    for (i=0; i<tapArrayFirstCondition.length; i++)
+    {
+        document.getElementById('ResultArray').innerHTML += ' ' + tapArrayFirstCondition[i];
+    }
+
+    var item = tapArrayFirstCondition[Math.floor(Math.random()*tapArrayFirstCondition.length)];
+
+
+    document.getElementById('MyOrder').innerHTML += ' ' + item;
+
+    console.log('result: ' + tapArrayFirstCondition);
+</script>
+
+</body>
+</html>
