@@ -27,6 +27,16 @@ gulp.task('js:es6', ()=>{
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('jsvendorcopy', ()=>{
+    return gulp.src('app/vendor/js/*')
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('cssvendorcopy', ()=>{
+    return gulp.src('app/vendor/css/*')
+        .pipe(gulp.dest('dist/css'));
+});
+
 gulp.task('js:babel', ()=>{
     return gulp.src('app/js/**/*.js')
         .pipe(babel(
@@ -63,7 +73,19 @@ gulp.task('js:watch', () => {
     }))
 });
 
+gulp.task('jsvendor:watch', () => {
+    return gulp.watch('app/vendor/js/*', gulp.series('jsvendorcopy', (done) => {
+        bs.reload();
+        done()
+    }))
+});
 
+gulp.task('cssvendor:watch', () => {
+    return gulp.watch('app/vendor/css/*', gulp.series('cssvendorcopy', (done) => {
+        bs.reload();
+        done()
+    }))
+});
 
 gulp.task('html:watch', () => {
     return gulp.watch('app/html/**/*.html', gulp.series('html', (done) => {
@@ -74,6 +96,6 @@ gulp.task('html:watch', () => {
 
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('sass', 'html', 'js:babel', 'js:es6'),
-    gulp.parallel('sass:watch', 'js:watch', 'html:watch', 'server')
+    gulp.parallel('sass', 'html', 'js:babel', 'js:es6', 'jsvendorcopy', 'cssvendorcopy'),
+    gulp.parallel('sass:watch', 'js:watch', 'html:watch', 'jsvendor:watch',  'cssvendor:watch', 'server')
 ));

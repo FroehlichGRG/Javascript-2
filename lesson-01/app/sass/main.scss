@@ -1,16 +1,21 @@
-$bg_color: red;
-$text_color: white;
+$bg_color: white;
+$text_color: black;
 
 body{
   background-color: $bg_color;
 
-  h2{
-    color: $text_color;
-    font-size: 3em;
-  }
+  .goods-item
+  {
+    h3{
+      color: $text_color;
+      font-size: 1.5em;
+    }
 
-  p{
-    color: $text_color;
+    p{
+      color: $text_color;
+      font-size: 1em;
+    }
+
   }
 }
 
