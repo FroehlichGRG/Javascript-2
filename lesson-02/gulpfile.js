@@ -11,10 +11,18 @@ gulp.task('html', ()=>{
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('css', ()=>{
+    return gulp.src('app/sass/*.css')
+        .pipe(gulp.dest('dist/css'));
+});
+
 gulp.task('sass', ()=>{
     return gulp.src('app/sass/**/*.scss')
         .pipe(sass())
-        .pipe(autoprefixer())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -49,6 +57,13 @@ gulp.task('server', () => {
     )
 });
 
+gulp.task('css:watch', () => {
+    return gulp.watch('app/sass/*.css', gulp.series('css', (done) => {
+        bs.reload();
+        done()
+    }))
+});
+
 gulp.task('sass:watch', () => {
     return gulp.watch('app/sass/**/*.scss', gulp.series('sass', (done) => {
         bs.reload();
@@ -72,6 +87,6 @@ gulp.task('html:watch', () => {
 
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('sass', 'html', 'js:babel', 'js:es6'),
-    gulp.parallel('sass:watch', 'js:watch', 'html:watch', 'server')
+    gulp.parallel('sass', 'html', 'css', 'js:babel', 'js:es6'),
+    gulp.parallel('sass:watch', 'js:watch', 'html:watch', 'css:watch', 'server')
 ));
