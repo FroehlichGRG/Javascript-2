@@ -31,7 +31,7 @@ gulp.task('clean', ()=>{
 });
 
 gulp.task('js:es6', ()=>{
-    return gulp.src('app/js/**/*.js')
+    return gulp.src('app/js/*.js')
         .pipe(gulp.dest('dist/js'));
 });
 
