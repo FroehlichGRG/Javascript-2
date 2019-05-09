@@ -7,7 +7,7 @@ let gulp = require('gulp'),
     babel = require('gulp-babel');
 
 gulp.task('html', ()=>{
-    return gulp.src('app/html/index.html')
+    return gulp.src('app/html/*.html')
         .pipe(gulp.dest('dist'));
 });
 

@@ -30,7 +30,6 @@ class GoodsList {
     }
 
     fetchGoods() {
-
         this.goods = [
             { title: "Shirt", price: 150.99, image: "https://placehold.it/150x170", productid: 1 },
             { title: "Socks", price: 50.22, image: "https://placehold.it/150x170", productid: 2 },
@@ -45,6 +44,8 @@ class GoodsList {
             { title: "Jacket", price: 350, image: "https://placehold.it/150x170", productid: 11 },
             { title: "Shoes", price: 250, image: "https://placehold.it/150x170", productid: 12 }
         ];
+
+        return this.goods;
     }
 
     render()
@@ -60,33 +61,57 @@ class GoodsList {
 }
 
 
-class ShoppingCart
-{
+class CartItem {
+    constructor(title = '-----', price = 0, image = '', productid )
+    {
+        this.title = title;
+        this.price = price;
+        this.productid = productid;
+    }
+    render()
+    {
+        return `<div class="cart-item"><p>${this.title}${this.price}${this.quantity}</p></div>`
+    }
+}
+
+
+class CartList {
     constructor()
     {
-        this.countGoods = 0;
-        this.amount = 0;
-        this.CartItems = []
+        this.goods = []
     }
 
-    addItem(productid)
+    fetchGoods() {
+        this.goods = [
+            { title: "Shirt", price: 150.99, image: "https://placehold.it/150x170", productid: 1 },
+            { title: "Socks", price: 50.22, image: "https://placehold.it/150x170", productid: 2 },
+            { title: "Jacket", price: 350.33, image: "https://placehold.it/150x170", productid: 3 },
+            { title: "Shoes", price: 250.54, image: "https://placehold.it/150x170", productid: 4 },
+            { title: "Shirt", price: 150.23, image: "https://placehold.it/150x170", productid: 5 },
+            { title: "Socks", price: 50.99, image: "https://placehold.it/150x170", productid: 6 },
+            { title: "Jacket", price: 350.31, image: "https://placehold.it/150x170", productid: 7 },
+            { title: "Shoes", price: 250.14, image: "https://placehold.it/150x170", productid: 8 },
+            { title: "Shirt", price: 149.11, image: "https://placehold.it/150x170", productid: 9 },
+            { title: "Socks", price: 50, image: "https://placehold.it/150x170", productid: 10 },
+            { title: "Jacket", price: 350, image: "https://placehold.it/150x170", productid: 11 },
+            { title: "Shoes", price: 250, image: "https://placehold.it/150x170", productid: 12 }
+        ];
+
+        return this.goods;
+    }
+
+    render()
     {
 
+        document.querySelector('.goods-list').innerHTML = listHtml;
     }
-
-    removeItem(productid, quantity) {
-    }
-
-    productExistsInCatalog(productid) {
-    }
-
-    total() {
-        let total = 0;
-        return total
-    }
-
 }
+
+
+
+
 
 const list = new GoodsList();
 list.fetchGoods();
 list.render();
+console.log(list.fetchGoods());
