@@ -1,0 +1,86 @@
+main
+{
+  padding: 20px 20%;
+  display: flex;
+
+  h3
+  {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.5em;
+  }
+
+  label
+  {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+
+    span
+    {
+      font-size: 0.8em;
+      color: #5a6268;
+    }
+
+  }
+
+  .left
+  {
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .checkbutton
+    {
+
+      background-color: #5a6268;
+      color: #FFF;
+      padding: 10px;
+      text-align: center;
+      width: 190px;
+      font-family: Arial;
+      size: 12px;
+      border-radius: 3px;
+      margin-top: 20px;
+
+      i
+      {
+        padding-right: 10px;
+      }
+
+      &:hover
+      {
+        background-color: #4e555b;
+        color: #d4eff5;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .right
+  {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .calculated-price, .calculated-calories
+    {
+      h2
+      {
+        font-size: 2em;
+        font-weight: normal;
+        font-family: 'PT Sans Narrow', sans-serif;
+      }
+
+      div
+      {
+        color: #1e7e34;
+        font-size: 3em;
+        font-family: 'PT Sans Narrow', sans-serif;
+      }
+    }
+  }
+}

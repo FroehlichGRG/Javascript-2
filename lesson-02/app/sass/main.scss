@@ -1,0 +1,123 @@
+body
+{
+  font-family: Arial;
+}
+
+header
+{
+  height: 4em;
+  background: #bf3400;
+
+  .container
+  {
+    width: 100%;
+
+    h5
+    {
+      font-family: 'Open Sans', sans-serif;
+      padding: 0;
+      margin: 12px;
+      color: white;
+      font-size: 2em;
+      float: left;
+    }
+
+    a
+    {
+      font-family: 'Open Sans', sans-serif;
+      color: white;
+      margin: 20px 25px;
+      font-size: 1em;
+      float: right;
+
+      &:hover
+      {
+        cursor: pointer;
+      }
+
+      i
+      {
+        font-size: 1em;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+main
+{
+  .container
+  {
+
+    .goods-list
+    {
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+
+      .goods-item
+      {
+        text-align: center;
+        border: 1px solid #cfdbe1;
+        border-radius: 5px;
+        margin: 0.5em;
+        padding: 1.5em;
+
+        .goods-image img
+        {
+          border: 1px solid transparent;
+          &:hover
+          {
+            border: 1px solid #adbcc2;
+            cursor: pointer;
+
+          }
+        }
+
+        .goods-info h2
+        {
+          font-family: 'Titillium Web', sans-serif;
+          font-size: 1em;
+          font-weight: normal;
+          padding: 0;
+          margin: 0;
+        }
+
+        .goods-info h3
+        {
+          font-weight: bold;
+          padding: 0;
+          margin: 5px 0 0 0;
+          font-size: 1.5em;
+          color: #1e7e34;
+        }
+
+        button
+        {
+          font-size: 0.8em;
+          color: white;
+          height: 39px;
+          font-style: normal;
+          letter-spacing: .02em;
+          margin-bottom: 0;
+          margin-top: 10px;
+          border: 1px solid #ff7100;
+          background-color: #fc8222;
+          border-radius: 5px;
+
+          &:hover
+          {
+            background-color: #fc4403;
+            cursor: pointer;
+          }
+
+          i{
+            padding-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}
