@@ -48,6 +48,18 @@ class GoodsList {
         return this.goods;
     }
 
+    calcAllGoods() {
+        let totalPrice = 0;
+        this.goods.forEach((good) => {
+            if(good.price !== undefined) {
+                totalPrice += good.price;
+            }
+        });
+        let totalGoodsAnswer = "В корзине товаров на сумму:" + totalPrice;
+        document.querySelector('.total-price').innerHTML = totalGoodsAnswer;
+    }
+
+
     render()
     {
         let listHtml = '';
@@ -70,7 +82,6 @@ class CartItem {
     }
     render()
     {
-        return `<div class="cart-item"><p>${this.title}${this.price}${this.quantity}</p></div>`
     }
 }
 
@@ -78,37 +89,20 @@ class CartItem {
 class CartList {
     constructor()
     {
-        this.goods = []
+        this.goods = [];
+        this.deletedGoods = [];
     }
 
-    fetchGoods() {
-        this.goods = [
-            { title: "Shirt", price: 150.99, image: "https://placehold.it/150x170", productid: 1 },
-            { title: "Socks", price: 50.22, image: "https://placehold.it/150x170", productid: 2 },
-            { title: "Jacket", price: 350.33, image: "https://placehold.it/150x170", productid: 3 },
-            { title: "Shoes", price: 250.54, image: "https://placehold.it/150x170", productid: 4 },
-            { title: "Shirt", price: 150.23, image: "https://placehold.it/150x170", productid: 5 },
-            { title: "Socks", price: 50.99, image: "https://placehold.it/150x170", productid: 6 },
-            { title: "Jacket", price: 350.31, image: "https://placehold.it/150x170", productid: 7 },
-            { title: "Shoes", price: 250.14, image: "https://placehold.it/150x170", productid: 8 },
-            { title: "Shirt", price: 149.11, image: "https://placehold.it/150x170", productid: 9 },
-            { title: "Socks", price: 50, image: "https://placehold.it/150x170", productid: 10 },
-            { title: "Jacket", price: 350, image: "https://placehold.it/150x170", productid: 11 },
-            { title: "Shoes", price: 250, image: "https://placehold.it/150x170", productid: 12 }
-        ];
+    addToCart() {}
 
-        return this.goods;
-    }
+    deleteFromCart() {}
 
-    render()
-    {
+    calcAllItemsInCart() {}
 
-        document.querySelector('.goods-list').innerHTML = listHtml;
-    }
+    istGoodsinCart() {}
+
+    render() {}
 }
-
-
-
 
 
 const list = new GoodsList();

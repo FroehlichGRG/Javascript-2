@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Burger constructor</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/burger.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Open+Sans:300|PT+Sans+Narrow" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h5 class="site-name">Burger constructor</h5>
+
+    </div>
+</header>
+
+<main>
+    <div class="left">
+        <form action="#" id="hamburger">
+            <h3>Выберите размер гамбургера</h3>
+            <input name="burgersize" value="Big" type="radio" id="big" class="hamburger" checked>
+            <label for="Big">Большой бургер<span>(100 рублей, 40 калорий)</span></label><br>
+            <input name="burgersize" value="Small" type="radio" id="small" class="hamburger">
+            <label for="Small">Мелкий бургер<span>(50 рублей, 20 калорий)</span></label>
+            <h3>Выберите начинки для гамбургера</h3>
+            <input name="filler" value="One" type="radio" id="fillercheese" class="hamburger" checked>
+            <label for="fillercheese">С сыром <span>(+10 рублей, +20 калорий)</span></label><br>
+            <input name="filler" value="Two" type="radio" id="fillersalat" class="hamburger">
+            <label for="fillersalat">С салатом <span>(+20 рублей, +5 калорий)</span></label><br>
+            <input name="filler" value="Three" type="radio" id="fillerpotato" class="hamburger">
+            <label for="fillerpotato">С картофелем <span>(+15 рублей, +10 калорий)</span></label>
+            <h3>Выберите размер гамбургера</h3>
+            <input type="checkbox" name="extraoption" id="seasoning" value="Seasoning" class="hamburger">
+            <label for="seasoning">Посыпать приправой <span>(15 рублей, 0 калорий)</span></label><br>
+            <input type="checkbox" name="extraoption" id="mayonnaise" value="Mayonnaise" class="hamburger">
+            <label for="mayonnaise">Полить майонезом <span>(20 рублей, 5 калорий)</span></label><br>
+        </form>
+        <div id="check" class="checkbutton"><i class="fas fa-calculator"></i>Calculate hamburger</div>
+    </div>
+    <div class="right">
+        <div class="calculated-price">
+            <h2>Стоимость гамбургера</h2>
+            <div id="price">0</div>
+        </div>
+        <div class="calculated-calories">
+            <h2>Калорийность гамбургера</h2>
+            <div id="calories">0</div>
+        </div>
+    </div>
+</main>
+
+<script src="js/burger.js"></script>
+</body>
+</html>
