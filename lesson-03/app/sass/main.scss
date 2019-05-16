@@ -122,4 +122,46 @@ main
   }
 }
 
+.cart-list
+{
+  .cart-container
+  {
+    width: 100%;
+    display: inline-block;
+    padding: 1em 0;
 
+    h3
+    {
+      font-size: 1em;
+      font-weight: normal;
+      padding: 0 20px 0 0;
+      margin: 0;
+      float: left;
+    }
+
+    p
+    {
+      font-size: 1em;
+      padding: 1px 10px 0 0;
+      margin: 0;
+      float: left;
+    }
+
+    .button
+    {
+      padding: 0;
+      margin: 0;
+      float: left;
+      color: #fc8222;
+
+      &:hover
+      {
+        color: #fc4403;
+
+      }
+    }
+
+
+
+  }
+}
