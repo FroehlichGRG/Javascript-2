@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form validation</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/formvalidation.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200|Open+Sans:300|Titillium+Web" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h5 class="site-name">Form validation</h5>
+    </div>
+</header>
+<main>
+    <form action="#" class="formvalidation" id="validatedForm">
+        <div class="form-fields-container">
+            <label for="name">Enter your name</label><br>
+            <input type="text" name="name" id="name" class="validation">
+        </div>
+        <div class="form-fields-container">
+            <label for="phone">Enter your phone</label><br>
+            <input type="text" name="phone" id="phone" class="validation">
+        </div>
+        <div class="form-fields-container">
+            <label for="email">Enter your email</label><br>
+            <input type="text" name="email" id="email" class="validation">
+        </div>
+        <div class="form-fields-container">
+            <label for="message">Enter your message</label><br>
+            <textarea name="message" id="message" class="validation"></textarea>
+        </div>
+        <button id="submitButton">Submit</button>
+    </form>
+</main>
+<script>
+    window.onload = () =>
+    {
+        document.getElementById('validatedForm').addEventListener('submit', e => {
+            let valid = new Validator('validatedForm');
+            if(!valid.valid)
+            {
+                e.preventDefault();
+            }
+        })
+    }
+</script>
+<script src="js/formvalidation.js"></script>
+</body>
+</html>

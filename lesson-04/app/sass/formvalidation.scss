@@ -1,0 +1,71 @@
+.formvalidation
+{
+  padding: 3em 30%;
+
+  .validation
+  {
+    width: 100%;
+    margin: 0;
+  }
+
+  .invalid
+  {
+    border: 1px solid red;
+  }
+
+  .error-msg
+  {
+    float: right;
+    color: red;
+    font-size: 0.8em;
+  }
+
+  .form-fields-container
+  {
+    padding-top: 2em;
+
+    label
+    {
+      color: #5a6268;
+      font-size: 0.8em;
+      width: 100%;
+    }
+
+    input
+    {
+      padding: 5px;
+      font-size: 1em;
+    }
+
+    textarea
+    {
+      height: 150px;
+    }
+
+  }
+
+  button
+  {
+    border: 1px solid #ff7100;
+    background-color: #fc8222;
+    color: white;
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+
+    &:hover
+    {
+      cursor: pointer;
+      background-color: #fc4403;
+    }
+  }
+}
+
+
+
+
+
+
+
+
