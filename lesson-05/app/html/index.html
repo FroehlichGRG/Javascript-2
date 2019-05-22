@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина покупок</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200|Open+Sans:300|Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <div class="container">
+            <h5 class="site-name">Shopping cart</h5>
+            <form @submit.prevent="FilterGoods">
+                <input v-model="search" id="search" type="text" placeholder="search field">
+            </form>
+            <a class="shoping-cart" onclick="viewCart()"><i class="fas fa-cart-arrow-down"></i>Your cart <span id="cartCounter">{{ cartCount }}</span></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="goods-list">
+                <template  v-for="good in FilterGoods">
+                    <div class="goods-item">
+                    <h3>{{ good.product_name }}</h3>
+                    <p>{{ good.price }}</p>
+                    <button :id="good.id_product" @click="addToCart(good.id_product)">Add to cart</button>
+                    </div>
+                </template>
+                <template class="goods-item" v-if="FilterGoods.length == 0">
+                    <h3 class="goods-null">Нет данных / Товары не найдены</h3>
+                </template>
+            </div>
+        </div>
+    </main>
+    <div>
+        <div class="cart-list">Корзина покупок</div>
+        <div class="cart-list-total"></div>
+    </div>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
